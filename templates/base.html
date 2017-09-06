@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+{% load staticfiles %}
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}谢昊 · Raphah{% endblock %}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="author" content="" />
+		<link rel="shortcut icon" href="/public/image/favicon.png">
+		<link rel="canonical" href="http://passser-by.com/index.html">
+		<link rel="stylesheet" href="/static/css/common.css">
+		<style>
+            {% block css %}{% endblock %}
+			.mod-foot{
+				color:#fff;
+			}
+			.mod-foot a{
+				color:#fff;
+			}
+
+			.mod-content section{
+				margin-bottom: 18px;
+			}
+			.mod-content h3{
+				padding-left: 2px;
+				margin-bottom: 5px;
+				font-size: 16px;
+			}
+			.mod-content ul{
+				overflow: hidden;
+			}
+			.mod-content li{
+				float: left;
+				width: 50%;
+				height: 20px;
+				line-height: 20px;
+				overflow: hidden;
+			}
+			.mod-content a{
+				padding:0 2px;
+			}
+			.mod-content a.hot{
+				color: #cc0000;
+			}
+			.mod-content a:hover{
+				border-bottom: 1px dotted #666;
+			}
+			.mod-qrcode {
+			    position: absolute;
+			    left: 0;
+			    bottom: 25px;
+			    width: 300px;
+			    text-align: center;
+			}
+			.mod-qrcode .qrcode{
+				display: none;
+				position: absolute;
+				left: 52px;
+				bottom: 48px;
+			}
+			.mod-qrcode a:hover .qrcode{
+				display: block;
+			}
+			@media screen and (max-width: 800px){
+				.mod-qrcode{
+					display: none;
+				}
+			}
+		</style>
+
+		<script type="text/javascript">
+			(function(){ //IE低版本兼容
+				var e = ['footer','header','section'],
+				          i= e.length;
+				while(i--){
+				      document.createElement(e[i]);
+				}
+			})();
+		</script>
+        {% block js %}{% endblock %}
+	</head>
+	<body>
+		<div class="wrapper">
+			<header>
+				<div class="mod-head">
+					<h1><a href="/">Xie Hao</a></h1>
+					<p>{% block stitle %}吴彦祖的博客{% endblock %}</p>
+				</div>
+				<div class="mod-list">
+					<ul>
+						<li><a href="{% url 'life' %}">生活</a></li>
+						<li><a href="{% url 'writing' %}">文字</a></li>
+						<li><a href="{% url 'favourite' %}">公路</a></li>
+						<li><a href="{% url 'messages' %}">留言</a></li>
+						<li><a href="{% url 'about_me' %}">关于</a></li>
+					</ul>
+				</div>
+				<div class="mod-qrcode">
+					<a href="javascript:;">
+						<img src="/static/image/icon-scan.png" width="48">
+						<img class="qrcode" src="/static/image/mycode.jpg" width="195">
+					</a>
+				</div>
+			</header>
+            {% block content %}
+            {% endblock %}
+			<div id="view" class="container">
+            </div>
+			<footer>
+				<div class="mod-foot">
+					<p>Copyright &copy; 2017 <a href="/">xiehao.pro</a></p>
+				</div>
+			</footer>
+		</div>
+		<div style="display: none;">
+			<script src="http://s95.cnzz.com/z_stat.php?id=1258310068&web_id=1258310068"></script>
+		</div>
+	</body>
+</html>
